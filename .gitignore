@@ -5,6 +5,7 @@
 reports/
 drivers/
 .idea/
+*.iml
 
 ### Eclipse ###
 .metadata
