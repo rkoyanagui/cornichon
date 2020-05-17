@@ -10,9 +10,43 @@
 
   <properties>
     <skip.tests>false</skip.tests>
+
+    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+    <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven-dependency-plugin.version>3.1.1</maven-dependency-plugin.version>
+    <maven.enforcer.plugin.version>3.0.0-M2</maven.enforcer.plugin.version>
+    <maven.help.plugin.version>3.2.0</maven.help.plugin.version>
+    <maven.failsafe.plugin.version>2.22.2</maven.failsafe.plugin.version>
+    <maven.resources.plugin.version>3.1.0</maven.resources.plugin.version>
+    <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+
     <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
 
     <awaitility.version>4.0.2</awaitility.version>
+    <apache.poi.version>3.9</apache.poi.version>
+    <apt.maven.plugin.version>1.1.3</apt.maven.plugin.version>
+    <cluecumber.version>2.3.1</cluecumber.version>
+    <commons.io.version>2.4</commons.io.version>
+    <google.guava.version>25.0-jre</google.guava.version>
+    <io.appium.version>6.1.0</io.appium.version>
+    <cucumber.version>5.5.0</cucumber.version>
+    <jackson.version>2.10.0</jackson.version>
+    <jacoco.maven.plugin.version>0.8.4</jacoco.maven.plugin.version>
+    <javax.persistence.version>2.2</javax.persistence.version>
+    <junit.platform.version>1.0.0</junit.platform.version>
+    <junit.jupiter.version>5.5.2</junit.jupiter.version>
+    <junit.vintage.version>5.5.2</junit.vintage.version>
+    <lombok.version>1.18.10</lombok.version>
+
+    <microsoft.sqlserver.version>7.0.0.jre8</microsoft.sqlserver.version>
+    <mockito.version>2.23.4</mockito.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <querydsl.version>4.2.1</querydsl.version>
+    <wiremock.version>2.25.1</wiremock.version>
+    <sonar.maven.plugin.version>3.4.0.905</sonar.maven.plugin.version>
 
     <sonar.projectKey>rkoyanagui_cornichon</sonar.projectKey>
     <sonar.organization>rkoyanagui</sonar.organization>
@@ -29,12 +63,233 @@
 
   <dependencies>
 
+    <!-- https://mvnrepository.com/artifact/org.awaitility/awaitility -->
     <dependency>
       <groupId>org.awaitility</groupId>
       <artifactId>awaitility</artifactId>
       <version>${awaitility.version}</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${google.guava.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons.io.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>${apache.poi.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.appium/java-client -->
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>${io.appium.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-core</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java8 -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java8</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-testng</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-spring -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-spring</artifactId>
+      <version>${cucumber.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.trivago.rta/cluecumber-report-plugin -->
+    <dependency>
+      <groupId>com.trivago.rta</groupId>
+      <artifactId>cluecumber-report-plugin</artifactId>
+      <version>${cluecumber.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.module/jackson-modules-java8 -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.module</groupId>
+      <artifactId>jackson-modules-java8</artifactId>
+      <version>${jackson.version}</version>
+      <type>pom</type>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.github.tomakehurst/wiremock-jre8 -->
+    <dependency>
+      <groupId>com.github.tomakehurst</groupId>
+      <artifactId>wiremock-jre8</artifactId>
+      <version>${wiremock.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-enforcer-plugin</artifactId>
+      <version>${maven.enforcer.plugin.version}</version>
+    </dependency>
+
   </dependencies>
+
+  <build>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${maven.enforcer.plugin.version}</version>
+        <configuration>
+          <rules>
+            <dependencyConvergence/>
+          </rules>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.plugin.version}</version>
+        <configuration>
+          <skipTests>${skip.tests}</skipTests>
+          <testFailureIgnore>true</testFailureIgnore>
+          <testSourceDirectory>src/main/java</testSourceDirectory>
+          <testClassesDirectory>target/classes</testClassesDirectory>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>com.trivago.rta</groupId>
+        <artifactId>cluecumber-report-plugin</artifactId>
+        <version>${cluecumber.version}</version>
+        <executions>
+          <execution>
+            <id>report</id>
+            <phase>test</phase>
+            <goals>
+              <goal>reporting</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <skip>${skip.tests}</skip>
+          <sourceJsonReportDirectory>${project.build.directory}/cucumber-report
+          </sourceJsonReportDirectory>
+          <generatedHtmlReportDirectory>${project.basedir}/reports/report-${maven.build.timestamp}
+          </generatedHtmlReportDirectory>
+          <customPageTitle>SIGO</customPageTitle>
+          <customParameters>
+            <_Text>Cornichon - Cucumber, Spring, TestNG, Selenium</_Text>
+            <URL>https://github.com/rkoyanagui/cornichon</URL>
+          </customParameters>
+          <expandBeforeAfterHooks>true</expandBeforeAfterHooks>
+          <expandStepHooks>true</expandStepHooks>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.maven.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>default-prepare-agent</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+
+  </build>
 
 </project>
