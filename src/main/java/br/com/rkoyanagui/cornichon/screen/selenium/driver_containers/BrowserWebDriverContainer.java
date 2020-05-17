@@ -7,9 +7,4 @@ public final class BrowserWebDriverContainer extends WebDriverContainer {
   public BrowserWebDriverContainer(WebDriver webDriver) {
     super(webDriver);
   }
-
-  @Override
-  public WebDriver getWebDriver() {
-    return super.getWebDriver();
-  }
 }
