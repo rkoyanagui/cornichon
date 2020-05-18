@@ -8,7 +8,9 @@ import org.hamcrest.Description;
 
 public interface Clickable<C extends Clickable<C>> extends Visible<C> {
 
-  ClickableProcessor getClickableProcessor();
+  default ClickableProcessor getClickableProcessor() {
+    return DefaultChains.CLICKABLE_PROCESSOR_CHAIN;
+  }
 
   default boolean isClickable() {
     return getClickableProcessor().isClickable(this);

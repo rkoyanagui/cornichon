@@ -20,22 +20,29 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(SCOPE_CUCUMBER_GLUE)
 @Slf4j
-public class WebDriverStarter {
+public final class WebDriverStarter {
+
+  private final Context context;
+  private final WebDriverProperties properties;
+  private final WebDriverFactory factory;
 
   @Autowired
-  private Context context;
-  @Autowired
-  private WebDriverProperties webDriverProperties;
-  @Autowired
-  private WebDriverFactory factory;
+  public WebDriverStarter(Context context,
+      WebDriverProperties properties,
+      WebDriverFactory factory) {
+
+    this.context = context;
+    this.properties = properties;
+    this.factory = factory;
+  }
 
   public WebDriver initialiseWebDriver() {
 
     URL url = null;
-    final String host = webDriverProperties.getServer().getHost();
-    final int port = webDriverProperties.getServer().getPort();
+    final String host = properties.getServer().getHost();
+    final int port = properties.getServer().getPort();
 
-    if (webDriverProperties.isRemote() && nonNull(host) && port > 0) {
+    if (properties.isRemote() && nonNull(host) && port > 0) {
 
       final String address = String.format("http://%s:%d/wd/hub", host, port);
       try {
@@ -48,7 +55,7 @@ public class WebDriverStarter {
         throw new WebDriverFactoryException(e);
       }
     }
-    return factory.getWebDriver(url, new DesiredCapabilities(), webDriverProperties);
+    return factory.getWebDriver(url, new DesiredCapabilities(), properties);
   }
 
   public BrowserWebDriverContainer getFirstBrowserWebDriverContainer() {

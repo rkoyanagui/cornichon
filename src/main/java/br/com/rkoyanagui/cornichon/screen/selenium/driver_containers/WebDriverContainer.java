@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class WebDriverContainer {
 
-  private WebDriver webDriver;
+  private final WebDriver webDriver;
 
   public WebDriverContainer(WebDriver webDriver) {
     this.webDriver = webDriver;

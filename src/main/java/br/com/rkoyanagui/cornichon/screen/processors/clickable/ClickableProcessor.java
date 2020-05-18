@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class ClickableProcessor {
 
-  protected ClickableProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final ClickableProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public ClickableProcessor(ClickableProcessor nextProcessor,
       @NonNull Predicate<WebDriverContainer> webDriverContainerPredicate) {

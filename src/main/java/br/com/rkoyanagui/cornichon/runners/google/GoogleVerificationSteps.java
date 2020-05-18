@@ -13,7 +13,7 @@ import br.com.rkoyanagui.cornichon.utils.Context;
 import io.cucumber.java8.Pt;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class GoogleVerificationSteps implements Pt {
+public final class GoogleVerificationSteps implements Pt {
 
   @Autowired
   private Context context;

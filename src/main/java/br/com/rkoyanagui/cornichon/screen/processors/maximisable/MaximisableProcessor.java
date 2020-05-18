@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class MaximisableProcessor {
 
-  protected MaximisableProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final MaximisableProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public MaximisableProcessor(
       MaximisableProcessor nextProcessor,

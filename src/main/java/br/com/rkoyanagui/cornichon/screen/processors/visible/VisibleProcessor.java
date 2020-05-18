@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class VisibleProcessor {
 
-  protected VisibleProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final VisibleProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public VisibleProcessor(VisibleProcessor nextProcessor,
       @NonNull Predicate<WebDriverContainer> webDriverContainerPredicate) {

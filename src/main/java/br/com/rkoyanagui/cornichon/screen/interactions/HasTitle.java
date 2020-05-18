@@ -8,7 +8,9 @@ import org.hamcrest.Description;
 
 public interface HasTitle extends Locatable {
 
-  PageTitleProcessor getPageTitleProcessor();
+  default PageTitleProcessor getPageTitleProcessor() {
+    return DefaultChains.PAGE_TITLE_PROCESSOR_CHAIN;
+  }
 
   default String getTitle() {
     return getPageTitleProcessor().getTitle(this);

@@ -8,7 +8,9 @@ import org.hamcrest.Description;
 
 public interface Loadable<L extends Loadable<L>> extends Locatable {
 
-  LoadableProcessor getLoadableProcessor();
+  default LoadableProcessor getLoadableProcessor() {
+    return DefaultChains.LOADABLE_PROCESSOR_CHAIN;
+  }
 
   default boolean hasBeenLoaded() {
     return getLoadableProcessor().hasBeenLoaded(this);

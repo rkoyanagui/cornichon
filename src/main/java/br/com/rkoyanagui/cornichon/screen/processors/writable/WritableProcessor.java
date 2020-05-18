@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class WritableProcessor {
 
-  protected WritableProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final WritableProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public WritableProcessor(
       WritableProcessor nextProcessor,

@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
     BasicConfig.class,
     WebDriverConfig.class
 })
-public class CucumberSetup implements Pt {
+public final class CucumberSetup implements Pt {
 
   @Autowired
   private Context context;

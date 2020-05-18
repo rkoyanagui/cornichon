@@ -4,7 +4,9 @@ import br.com.rkoyanagui.cornichon.screen.processors.writable.WritableProcessor;
 
 public interface Writable<W extends Writable<W>> extends Readable<W>, Clickable<W> {
 
-  WritableProcessor getWritableProcessor();
+  default WritableProcessor getWritableProcessor() {
+    return DefaultChains.WRITABLE_PROCESSOR_CHAIN;
+  }
 
   default W write(String text) {
     getWritableProcessor().write(this, text);

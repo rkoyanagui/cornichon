@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class LoadableProcessor {
 
-  protected LoadableProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final LoadableProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public LoadableProcessor(
       LoadableProcessor nextProcessor,

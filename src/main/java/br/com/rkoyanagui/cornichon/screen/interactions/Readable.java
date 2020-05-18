@@ -4,7 +4,9 @@ import br.com.rkoyanagui.cornichon.screen.processors.readable.ReadableProcessor;
 
 public interface Readable<R extends Readable<R>> extends Visible<R>, Sizable {
 
-  ReadableProcessor getReadableProcessor();
+  default ReadableProcessor getReadableProcessor() {
+    return DefaultChains.READABLE_PROCESSOR_CHAIN;
+  }
 
   default String read() {
     return getReadableProcessor().read(this);

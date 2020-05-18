@@ -16,10 +16,10 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope(SCOPE_CUCUMBER_GLUE)
 @Slf4j
-public class CluecumberReporter implements Reporter {
+public final class CluecumberReporter implements Reporter {
 
-  private Map<String, Object> map;
-  private ObjectMapper objectMapper;
+  private final Map<String, Object> map;
+  private final ObjectMapper objectMapper;
 
   @Autowired
   protected CluecumberReporter(ObjectMapper objectMapper) {

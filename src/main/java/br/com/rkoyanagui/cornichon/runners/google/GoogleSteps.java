@@ -11,7 +11,7 @@ import br.com.rkoyanagui.cornichon.utils.Context;
 import io.cucumber.java8.Pt;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class GoogleSteps implements Pt {
+public final class GoogleSteps implements Pt {
 
   @Autowired
   private Context context;

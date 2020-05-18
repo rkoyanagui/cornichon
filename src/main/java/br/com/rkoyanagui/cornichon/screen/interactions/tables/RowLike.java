@@ -1,12 +1,12 @@
 package br.com.rkoyanagui.cornichon.screen.interactions.tables;
 
+import br.com.rkoyanagui.cornichon.screen.elements.Text;
 import br.com.rkoyanagui.cornichon.screen.interactions.Clickable;
-import br.com.rkoyanagui.cornichon.screen.interactions.Visible;
 import java.util.List;
 
-public interface RowLike<R extends RowLike<R, C>, C> extends Visible<R>, Clickable<R> {
+public interface RowLike<R extends RowLike<R>> extends Clickable<R> {
 
-  List<C> getCells();
+  List<Text> getCells();
 
-  C getCell(int column);
+  Text getCell(int column);
 }

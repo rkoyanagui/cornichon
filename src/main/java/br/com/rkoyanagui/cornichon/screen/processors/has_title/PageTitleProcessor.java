@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class PageTitleProcessor {
 
-  protected PageTitleProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final PageTitleProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public PageTitleProcessor(
       PageTitleProcessor nextProcessor,

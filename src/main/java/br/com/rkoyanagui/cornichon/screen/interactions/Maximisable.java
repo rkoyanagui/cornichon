@@ -4,7 +4,9 @@ import br.com.rkoyanagui.cornichon.screen.processors.maximisable.MaximisableProc
 
 public interface Maximisable<M extends Maximisable<M>> extends Locatable {
 
-  MaximisableProcessor getMaximisableProcessor();
+  default MaximisableProcessor getMaximisableProcessor() {
+    return DefaultChains.MAXIMISABLE_PROCESSOR_CHAIN;
+  }
 
   default M maximise() {
     getMaximisableProcessor().maximise(this);

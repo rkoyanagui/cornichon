@@ -4,7 +4,9 @@ import br.com.rkoyanagui.cornichon.screen.processors.closeable_window.CloseableW
 
 public interface CloseableWindow extends Locatable {
 
-  CloseableWindowProcessor getCloseableWindowProcessor();
+  default CloseableWindowProcessor getCloseableWindowProcessor() {
+    return DefaultChains.CLOSEABLE_WINDOW_PROCESSOR_CHAIN;
+  }
 
   default void closeWindow() {
     getCloseableWindowProcessor().closeWindow(this);

@@ -13,11 +13,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class ChromeDriverFactory implements WebDriverFactory {
+public final class ChromeDriverFactory implements WebDriverFactory {
 
   @Override
-  public WebDriver getWebDriver(
-      URL url,
+  public WebDriver getWebDriver(URL url,
       DesiredCapabilities capabilities,
       WebDriverProperties properties) {
 
@@ -35,16 +34,13 @@ public class ChromeDriverFactory implements WebDriverFactory {
         .setExperimentalOption("prefs", preferences);
 
     if (properties.isHeadless()) {
-
       options = options.setHeadless(true).addArguments("window-size=1366,768");
     }
 
     if (nonNull(url)) {
-
       return new RemoteWebDriver(url, options);
 
     } else {
-
       return new ChromeDriver(options);
     }
   }

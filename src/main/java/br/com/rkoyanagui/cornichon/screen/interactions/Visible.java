@@ -8,7 +8,9 @@ import org.hamcrest.Description;
 
 public interface Visible<V extends Visible<V>> extends Locatable {
 
-  VisibleProcessor getVisibleProcessor();
+  default VisibleProcessor getVisibleProcessor() {
+    return DefaultChains.VISIBLE_PROCESSOR_CHAIN;
+  }
 
   default boolean isDisplayed() {
     return getVisibleProcessor().isDisplayed(this);

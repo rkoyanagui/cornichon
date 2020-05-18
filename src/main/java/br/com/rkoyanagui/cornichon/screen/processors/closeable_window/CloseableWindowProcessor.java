@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class CloseableWindowProcessor {
 
-  protected CloseableWindowProcessor nextProcessor;
-  protected Predicate<WebDriverContainer> webDriverContainerPredicate;
+  protected final CloseableWindowProcessor nextProcessor;
+  protected final Predicate<WebDriverContainer> webDriverContainerPredicate;
 
   public CloseableWindowProcessor(
       CloseableWindowProcessor nextProcessor,
