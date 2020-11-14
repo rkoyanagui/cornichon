@@ -3,8 +3,6 @@ spring:
     name: cornichon
 webdriver:
   browser: ${WEBDRIVER_BROWSER:chrome}
-  executables:
-    chrome: drivers/chromedriver.exe
   downloadFolder: ${WEBDRIVER_DOWNLOAD_FOLDER:download}
   headless: ${WEBDRIVER_HEADLESS:false}
   remote: ${WEBDRIVER_REMOTE:false}

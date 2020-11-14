@@ -1,7 +1,6 @@
 package br.com.rkoyanagui.cornichon.runners.google;
 
 import static br.com.rkoyanagui.cornichon.screen.interactions.Loadable.loaded;
-import static br.com.rkoyanagui.cornichon.screen.interactions.Waitable.willWait;
 import static org.hamcrest.Matchers.is;
 
 import br.com.rkoyanagui.cornichon.pages.GooglePage;
@@ -28,8 +27,7 @@ public final class GoogleSteps implements Pt {
 
       googlePage = new GooglePage(webDriverStarter.getFirstBrowserWebDriverContainer());
       googlePage.load(GooglePage.URL);
-      willWait().until(() -> googlePage, is(loaded()))
-          .maximise();
+      googlePage.waitUntil(is(loaded())).maximise();
     });
 
     Quando("preencho o campo de busca com {string}", (String searchTerm) -> {

@@ -25,8 +25,7 @@ public interface HasTitle extends Locatable {
     @Override
     public boolean matches(Object actual) {
       if (nonNull(actual) && (actual instanceof HasTitle)) {
-        HasTitle element = (HasTitle) actual;
-        return nonNull(element.getTitle());
+        return nonNull(((HasTitle) actual).getTitle());
       }
       return false;
     }

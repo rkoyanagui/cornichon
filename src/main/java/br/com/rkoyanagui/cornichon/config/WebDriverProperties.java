@@ -11,8 +11,6 @@ public class WebDriverProperties {
 
   private String browser;
 
-  private Executables executables;
-
   private String downloadFolder;
 
   private boolean headless;
@@ -20,13 +18,6 @@ public class WebDriverProperties {
   private boolean remote;
 
   private Server server;
-
-  @Configuration
-  @Data
-  public static class Executables {
-
-    private String chrome;
-  }
 
   @Configuration
   @Data

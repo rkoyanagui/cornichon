@@ -29,9 +29,8 @@ public interface Clickable<C extends Clickable<C>> extends Visible<C> {
 
     @Override
     public boolean matches(Object actual) {
-      if (nonNull(actual) && (actual instanceof Clickable<?>)) {
-        Clickable<?> element = (Clickable<?>) actual;
-        return element.isClickable();
+      if (nonNull(actual) && actual instanceof Clickable<?>) {
+        return ((Clickable<?>) actual).isClickable();
       }
       return false;
     }

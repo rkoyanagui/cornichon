@@ -1,15 +1,17 @@
 package br.com.rkoyanagui.cornichon.screen.elements;
 
-import br.com.rkoyanagui.cornichon.screen.interactions.Clickable;
+import static br.com.rkoyanagui.cornichon.screen.interactions.Waitable.willWait;
+
 import br.com.rkoyanagui.cornichon.screen.interactions.Locatable;
 import br.com.rkoyanagui.cornichon.screen.selenium.driver_containers.WebDriverContainer;
 import java.util.Optional;
 import lombok.Getter;
 import lombok.NonNull;
+import org.hamcrest.Matcher;
 import org.openqa.selenium.By;
 
 @Getter
-public abstract class ScreenElement<S extends ScreenElement<S>> implements Clickable<S> {
+public abstract class ScreenElement<S extends ScreenElement<S>> implements Locatable {
 
   private final WebDriverContainer webDriverContainer;
   private final Locatable parent;
@@ -27,5 +29,14 @@ public abstract class ScreenElement<S extends ScreenElement<S>> implements Click
   @Override
   public Optional<Locatable> getParent() {
     return Optional.ofNullable(parent);
+  }
+
+  public S waitUntil(Matcher<? super S> matcher) {
+    return willWait().until(() -> (S) this, matcher);
+  }
+
+  public S waitUntil(long timeoutInSeconds) {
+    willWait(timeoutInSeconds);
+    return (S) this;
   }
 }

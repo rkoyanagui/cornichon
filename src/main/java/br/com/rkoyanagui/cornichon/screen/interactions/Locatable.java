@@ -50,7 +50,8 @@ public interface Locatable {
 
     WebDriver webDriver = getWebDriverContainer().getWebDriver();
 
-    List<By> locatorChain = getParentChain().stream()
+    List<By> locatorChain = getParentChain()
+        .stream()
         .map(Locatable::getLocator)
         .collect(Collectors.toList());
 
@@ -111,9 +112,8 @@ public interface Locatable {
 
     @Override
     public boolean matches(Object actual) {
-      if (nonNull(actual) && (actual instanceof Locatable)) {
-        Locatable element = (Locatable) actual;
-        return element.hasBeenFound();
+      if (nonNull(actual) && actual instanceof Locatable) {
+        return ((Locatable) actual).hasBeenFound();
       }
       return false;
     }

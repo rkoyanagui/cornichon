@@ -1,6 +1,6 @@
 package br.com.rkoyanagui.cornichon.screen.interactions;
 
-public interface Sizable {
+public interface Sizeable {
 
   int size();
 }

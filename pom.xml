@@ -10,6 +10,7 @@
 
   <properties>
     <skip.tests>false</skip.tests>
+    <dataproviderthreadcount>1</dataproviderthreadcount>
 
     <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
@@ -32,6 +33,7 @@
     <commons.io.version>2.4</commons.io.version>
     <google.guava.version>25.0-jre</google.guava.version>
     <io.appium.version>6.1.0</io.appium.version>
+    <webdrivermanager.version>4.0.0</webdrivermanager.version>
     <cucumber.version>5.5.0</cucumber.version>
     <jackson.version>2.10.0</jackson.version>
     <jacoco.maven.plugin.version>0.8.4</jacoco.maven.plugin.version>
@@ -113,6 +115,13 @@
       <groupId>io.appium</groupId>
       <artifactId>java-client</artifactId>
       <version>${io.appium.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>${webdrivermanager.version}</version>
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
@@ -235,6 +244,12 @@
           <testFailureIgnore>true</testFailureIgnore>
           <testSourceDirectory>src/main/java</testSourceDirectory>
           <testClassesDirectory>target/classes</testClassesDirectory>
+          <properties>
+            <property>
+              <name>dataproviderthreadcount</name>
+              <value>${dataproviderthreadcount}</value>
+            </property>
+          </properties>
         </configuration>
       </plugin>
 

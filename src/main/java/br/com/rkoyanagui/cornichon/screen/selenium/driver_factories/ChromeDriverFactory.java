@@ -3,6 +3,7 @@ package br.com.rkoyanagui.cornichon.screen.selenium.driver_factories;
 import static java.util.Objects.nonNull;
 
 import br.com.rkoyanagui.cornichon.config.WebDriverProperties;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import java.io.File;
 import java.net.URL;
 import java.util.HashMap;
@@ -20,8 +21,7 @@ public final class ChromeDriverFactory implements WebDriverFactory {
       DesiredCapabilities capabilities,
       WebDriverProperties properties) {
 
-    System.setProperty("webdriver.chrome.driver",
-        new File(properties.getExecutables().getChrome()).getAbsolutePath());
+    WebDriverManager.chromedriver().setup();
 
     Map<String, Object> preferences = new HashMap<>();
     preferences.put("profile.password_manager_enabled", false);

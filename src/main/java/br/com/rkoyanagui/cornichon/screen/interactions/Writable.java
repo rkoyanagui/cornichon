@@ -2,7 +2,7 @@ package br.com.rkoyanagui.cornichon.screen.interactions;
 
 import br.com.rkoyanagui.cornichon.screen.processors.writable.WritableProcessor;
 
-public interface Writable<W extends Writable<W>> extends Readable<W>, Clickable<W> {
+public interface Writable<W extends Writable<W>> extends Readable<W> {
 
   default WritableProcessor getWritableProcessor() {
     return DefaultChains.WRITABLE_PROCESSOR_CHAIN;

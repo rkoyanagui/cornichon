@@ -34,9 +34,8 @@ public interface Visible<V extends Visible<V>> extends Locatable {
 
     @Override
     public boolean matches(Object actual) {
-      if (nonNull(actual) && (actual instanceof Visible<?>)) {
-        Visible<?> element = (Visible<?>) actual;
-        return element.isDisplayed();
+      if (nonNull(actual) && actual instanceof Visible<?>) {
+        return ((Visible<?>) actual).isDisplayed();
       }
       return false;
     }

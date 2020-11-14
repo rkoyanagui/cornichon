@@ -33,9 +33,8 @@ public interface Loadable<L extends Loadable<L>> extends Locatable {
 
     @Override
     public boolean matches(Object actual) {
-      if (nonNull(actual) && (actual instanceof Loadable<?>)) {
-        Loadable<?> element = (Loadable<?>) actual;
-        return element.hasBeenLoaded();
+      if (nonNull(actual) && actual instanceof Loadable<?>) {
+        return ((Loadable<?>) actual).hasBeenLoaded();
       }
       return false;
     }
